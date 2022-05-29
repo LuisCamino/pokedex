@@ -9,17 +9,32 @@
 		<script src="/pokedex.js" defer></script>
     <link rel="stylesheet" href="styles/pokeapi.css" />
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+    </style>
 </head>
   
-<body> <h1>
-  <img src="https://crisgon.github.io/pokedex/src/images/logo.png "></h1>
-  <div class="container">
-      <div class="input-container">
-          <input id="input-search" type="text" placeholder="search any pokemon. . ." />
-      </div>
-   
-    <div class="types"></div>
-    <ul id="pokedex"></ul>
-  </div>
-</body>
+  <body id="body" class="dark-mode">  
+      
+    <div class="toggle-button-cover">
+
+          <div class="button r" id="button-1" >
+            <input type="checkbox" class="checkbox"  name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode" />
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+        </div>
+    <h1><img src="https://crisgon.github.io/pokedex/src/images/logo.png "></h1>
+    <div class="container">
+        <div class="input-container">
+            <input id="input-search" type="text" placeholder="search any pokemon. . ."/>
+        </div>
+      <div class="types"></div>
+      <ul id="pokedex"></ul>
+    </div>
+    <button class="back-to-top">Back To Top</button>
+  </body>
 </html>
+
+
+
+  
+    

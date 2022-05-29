@@ -2,6 +2,12 @@ const pokedex$$ = document.getElementById("pokedex");
 const ALL_POKEMONS = []; 
 const TYPES = ["all"];
 
+function toggleDarkLight() {
+	var body = document.getElementById("body");
+	var currentClass = body.className;
+	body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+  }
+
 const getAllPokemons = () => {
   return fetch("https://pokeapi.co/api/v2/pokemon?limit=150")
     .then((response) => response.json())
@@ -47,7 +53,7 @@ const drawPokemons = (pokemons) => {
     <div class="flip-card-inner">
       <div class="flip-card-front">
             <img src=${poke.image} alt=${poke.name}>
-            <p>${poke.name}</p>
+            <p><b>${poke.name}</b></p>
             <p>#${poke.id}</p>
             </div>
 
@@ -115,7 +121,33 @@ const drawTypesButtons = () => {
 };
 
 const startMyCode = async () => {
-  addAllMyEventsListeners();
+	toggleDarkLight();
+  	addAllMyEventsListeners();
+  
+
+	  const showOnPx = 100;
+	  const backToTopButton = document.querySelector(".back-to-top")
+	  
+	  const scrollContainer = () => {
+		return document.documentElement || document.body;
+	  };
+	  
+	  document.addEventListener("scroll", () => {
+		if (scrollContainer().scrollTop > showOnPx) {
+		  backToTopButton.classList.remove("hidden")
+		} else {
+		  backToTopButton.classList.add("hidden")
+		}
+	  });
+	  const goToTop = () => {
+		document.body.scrollIntoView({
+		  behavior: "smooth",
+		});
+	  };
+	  backToTopButton.addEventListener("click", goToTop)
+
+	  
+
 
   const allPokemons = await getAllPokemons();
 
